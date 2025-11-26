@@ -13,8 +13,13 @@ if sys.platform == "win32":
     # Windows (MSVC)
     extra_compile_args = ['/Ox', '/fp:fast', '/openmp']
     extra_link_args = ['/openmp']
+elif sys.platform == "darwin":
+    # macOS (Clang) - OpenMP is not supported by default, so we disable it.
+    # The code will still compile, but 'prange' will run sequentially.
+    extra_compile_args = ['-O3', '-ffast-math']
+    extra_link_args = []
 else:
-    # Linux/macOS (GCC/Clang)
+    # Linux (GCC)
     extra_compile_args = ['-O3', '-ffast-math', '-fopenmp']
     extra_link_args = ['-fopenmp']
 
@@ -33,7 +38,7 @@ extensions = [
 # --- Setup configuration ---
 setup(
     name="matthewsort",
-    version="0.1.6", # Match the version in __init__.py
+    version="0.1.7", # Match the version in __init__.py
     author="Matthew",
     author_email="matthew.hill@mail.utoronto.ca",
     description="An incredibly fast, multithreaded sorting algorithm implemented in Cython.",
