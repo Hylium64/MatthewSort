@@ -11,7 +11,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        # Build for Windows, Linux, and Mac
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
@@ -19,9 +18,8 @@ jobs:
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.12.0
-        
       
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           path: ./wheelhouse/*.whl
 
@@ -31,13 +29,13 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/MatthewSort
+      url: https://pypi.org/p/matthewsort
     permissions:
-      id-token: write 
+      id-token: write
 
     steps:
       - name: Download all the wheels
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifact
           path: dist
