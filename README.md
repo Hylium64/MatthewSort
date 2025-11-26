@@ -16,12 +16,14 @@ pip install matthewsort
 
 Un-parallelized sort
 ```python
-<list>.matthewsort.sort()
+matthewsort.sort(<list>)
 ```
 Parallelized sort
 ```python
-<list>.matthewsort.supersort()
+matthewsort.supersort(<list>)
 ```
+
+Both return a copy of the sorted list.
 
 ## Speed details
 
