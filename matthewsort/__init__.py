@@ -5,4 +5,4 @@
 # `from matthewsort.MatthewSort import sort`.
 from .MatthewSort import sort, supersort
 
-__version__ = "0.1.2" # Start with a version number
+__version__ = "0.1.3" # Start with a version number
