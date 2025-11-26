@@ -1,6 +1,4 @@
 # distutils: language=c++
-# distutils: extra_compile_args = -fopenmp
-# distutils: extra_link_args = -fopenmp
 # cython: boundscheck=False
 # cython: wraparound=False
 # cython: cdivision=True
