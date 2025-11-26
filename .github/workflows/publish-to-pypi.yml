@@ -21,6 +21,11 @@ jobs:
         env:
           # Skip 32-bit builds on Windows and ALL PyPy builds.
           CIBW_SKIP: "*-win32 pp*"
+            # Override compiler flags for macOS to remove -fopenmp
+          CIBW_ENVIRONMENT_MACOS: >
+            CFLAGS="-O3 -ffast-math"
+            CXXFLAGS="-O3 -ffast-math"
+            LDFLAGS=""
 
       - uses: actions/upload-artifact@v4
         with:
