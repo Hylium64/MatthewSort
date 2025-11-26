@@ -24,6 +24,8 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
+          # --- FIX 1: Give each artifact a unique name ---
+          name: wheels-${{ matrix.os }}
           path: ./wheelhouse/*.whl
 
   publish_to_pypi:
@@ -37,11 +39,12 @@ jobs:
       id-token: write
 
     steps:
+      # --- FIX 2: Download ALL artifacts, not just one named 'artifact' ---
       - name: Download all the wheels
         uses: actions/download-artifact@v4
         with:
-          name: artifact
           path: dist
+          # By not specifying a "name", it downloads all artifacts.
       
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
