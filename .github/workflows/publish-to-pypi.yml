@@ -39,12 +39,17 @@ jobs:
       id-token: write
 
     steps:
-      # --- FIX 2: Download ALL artifacts, not just one named 'artifact' ---
       - name: Download all the wheels
         uses: actions/download-artifact@v4
         with:
           path: dist
+          merge-multiple: true # This is the key!
+
+
           # By not specifying a "name", it downloads all artifacts.
-      
+
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # Tell the action to look in all subdirectories of the dist folder
+          packages_dir: dist/

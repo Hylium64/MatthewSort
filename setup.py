@@ -38,7 +38,7 @@ extensions = [
 # --- Setup configuration ---
 setup(
     name="matthewsort",
-    version="0.1.9", # Match the version in __init__.py
+    version="0.1.10", # Match the version in __init__.py
     author="Matthew",
     author_email="matthew.hill@mail.utoronto.ca",
     description="An incredibly fast, multithreaded sorting algorithm implemented in Cython.",
