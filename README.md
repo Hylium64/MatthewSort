@@ -14,5 +14,18 @@ pip install matthewsort
 
 ## Commands
 
- `<list>.matthewsort.sort()` Un-parallelized sort
-  `<list>.matthewsort.supersort()` Parallelized sort
+Un-parallelized sort
+```bash
+<list>.matthewsort.sort()
+```
+Parallelized sort
+```bash
+<list>.matthewsort.supersort()
+```
+
+## Speed details
+
+Time Complexity:
+Best Case O(1)
+Average Case: O(n)
+Worst Case: O(n^2)
