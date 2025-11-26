@@ -15,11 +15,11 @@ pip install matthewsort
 ## Commands
 
 Un-parallelized sort
-```bash
+```python
 <list>.matthewsort.sort()
 ```
 Parallelized sort
-```bash
+```python
 <list>.matthewsort.supersort()
 ```
 
